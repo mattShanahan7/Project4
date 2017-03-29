@@ -19,6 +19,7 @@ public class Ball{
 	final int WIDTH = 780;
 	final int HEIGHT = 750;
 
+	boolean barrierUp = true;
 	
 
 	public Ball()
@@ -39,6 +40,49 @@ public class Ball{
 
 	public void move()
 	{
+		if (barrierUp)
+		{
+			X += dx;
+			Y += dy;
+			
+			if (X - radius < 0)
+			{
+				dx = -dx;
+				X = radius;
+			}
+			else if (X + radius > (WIDTH / 2) && X < (WIDTH / 2) )
+			{
+				dx = -dx;
+				X = (WIDTH / 2) - radius;
+			}
+			else if (X - radius < (WIDTH / 2) && X > (WIDTH / 2) )
+			{
+				dx = -dx;
+				X = (WIDTH / 2) + radius;
+			}
+		}
+		else
+		{
+			X += dx;
+			Y += dy;
+			
+			if (X - radius < 0)
+			{
+				dx = -dx;
+				X = radius;
+			}
+			else if (X + radius > (WIDTH / 2) && X < (WIDTH / 2) && (Y < 300 || Y > 500) )
+			{
+				dx = -dx;
+				X = (WIDTH / 2) - radius;
+			}
+			else if (X - radius < (WIDTH / 2) && X > (WIDTH / 2) && (Y < 300 || Y > 500) )
+			{
+				dx = -dx;
+				X = (WIDTH / 2) + radius;
+			}
+			
+		}
 		X += dx;
 		Y += dy;
 		if (X - radius < 0) {
@@ -57,7 +101,11 @@ public class Ball{
 			Y = HEIGHT - radius;
 		}
 		
+<<<<<<< HEAD
 	//	System.out.println(X + ", " + Y);
+=======
+		//System.out.println(X + ", " + Y);
+>>>>>>> 2c30600552acd24e3e320294def6525c0c2cd651
 	}
 	
 	
