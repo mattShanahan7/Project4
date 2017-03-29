@@ -16,22 +16,22 @@ public class Ball{
 	float dx;
 	float dy;
 	
-	final int WIDTH = 780;
-	final int HEIGHT = 750;
+	final int WIDTH = 790;
+	final int HEIGHT = 760;
 
 	boolean barrierUp = true;
 	
 
 	public Ball()
 	{
-		radius = 100; 
+		radius = 40; 
 		diameter = radius * 2;
 		// Center of Call
 		X = radius + (int) (Math.random() * WIDTH);
 		Y = radius + (int) (Math.random() * HEIGHT);
 		// Direction (Speed)
-		dx = (int) (Math.ceil(Math.random() * 30));
-		dy = (int) (Math.ceil(Math.random() * 30));
+		dx = (int) (Math.ceil(Math.random() * 10));
+		dy = (int) (Math.ceil(Math.random() * 10));
 		
 		
 		//this.start();
@@ -101,17 +101,13 @@ public class Ball{
 			Y = HEIGHT - radius;
 		}
 		
-<<<<<<< HEAD
-	//	System.out.println(X + ", " + Y);
-=======
 		//System.out.println(X + ", " + Y);
->>>>>>> 2c30600552acd24e3e320294def6525c0c2cd651
 	}
 	
 	
 	  public void paint(Graphics g) 
 	  {
-		    g.setColor(Color.white);
+		    g.setColor(Color.BLUE);
 		    g.fillOval((int)(X-radius), (int)(Y-radius), (int)diameter, (int)diameter);
 	  }
 	

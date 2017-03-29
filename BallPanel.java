@@ -13,14 +13,10 @@ import java.lang.Math;
 
 
 
-<<<<<<< HEAD
- 
-public class BallPanel extends JPanel{
-=======
 
 public class BallPanel extends JPanel implements MouseListener, KeyListener{
->>>>>>> 2c30600552acd24e3e320294def6525c0c2cd651
 
+	
 	
 	ArrayList<Ball> balls = new ArrayList<Ball>();
 	
@@ -114,6 +110,7 @@ public class BallPanel extends JPanel implements MouseListener, KeyListener{
 	}
 	
 	
+
 	public static void main(String[] args) {
 		
 		JFrame frame = new JFrame("Maxwell's Demons");
@@ -125,17 +122,12 @@ public class BallPanel extends JPanel implements MouseListener, KeyListener{
 	
 		
 		
-		
 		frame.add(p);
 		
 		frame.setVisible(true);
 		
 		
 		
-<<<<<<< HEAD
-		
-	}	
-=======
 	}
 
 
@@ -204,5 +196,4 @@ public class BallPanel extends JPanel implements MouseListener, KeyListener{
 	
 	
 	
->>>>>>> 2c30600552acd24e3e320294def6525c0c2cd651
 }
