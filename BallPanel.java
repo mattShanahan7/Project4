@@ -8,10 +8,9 @@ import javax.swing.JPanel;
 
 
 
-
+ 
 public class BallPanel extends JPanel{
 
-	
 	
 	ArrayList<Ball> balls = new ArrayList<Ball>();
 	
@@ -69,7 +68,6 @@ public class BallPanel extends JPanel{
 	}
 	
 	
-
 	public static void main(String[] args) {
 		
 		JFrame frame = new JFrame("Maxwell's Demons");
@@ -81,15 +79,13 @@ public class BallPanel extends JPanel{
 	
 		
 		
+		
 		frame.add(p);
 		
 		frame.setVisible(true);
 		
 		
 		
-	}
-	
-	
-	
-	
+		
+	}	
 }

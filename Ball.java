@@ -16,21 +16,21 @@ public class Ball{
 	float dx;
 	float dy;
 	
-	final int WIDTH = 790;
-	final int HEIGHT = 760;
+	final int WIDTH = 780;
+	final int HEIGHT = 750;
 
 	
 
 	public Ball()
 	{
-		radius = 40; 
+		radius = 100; 
 		diameter = radius * 2;
 		// Center of Call
 		X = radius + (int) (Math.random() * WIDTH);
 		Y = radius + (int) (Math.random() * HEIGHT);
 		// Direction (Speed)
-		dx = (int) (Math.ceil(Math.random() * 10));
-		dy = (int) (Math.ceil(Math.random() * 10));
+		dx = (int) (Math.ceil(Math.random() * 30));
+		dy = (int) (Math.ceil(Math.random() * 30));
 		
 		
 		//this.start();
@@ -57,13 +57,13 @@ public class Ball{
 			Y = HEIGHT - radius;
 		}
 		
-		System.out.println(X + ", " + Y);
+	//	System.out.println(X + ", " + Y);
 	}
 	
 	
 	  public void paint(Graphics g) 
 	  {
-		    g.setColor(Color.BLUE);
+		    g.setColor(Color.white);
 		    g.fillOval((int)(X-radius), (int)(Y-radius), (int)diameter, (int)diameter);
 	  }
 	
