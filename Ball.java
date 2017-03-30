@@ -71,12 +71,12 @@ public class Ball{
 				dx = -dx;
 				X = radius;
 			}
-			else if (X + radius > (WIDTH / 2) && X < (WIDTH / 2) && (Y < 300 || Y > 500) )
+			else if (X + radius > (WIDTH / 2) && X < (WIDTH / 2) && (Y - radius < 300 || Y + radius > 500) )
 			{
 				dx = -dx;
 				X = (WIDTH / 2) - radius;
 			}
-			else if (X - radius < (WIDTH / 2) && X > (WIDTH / 2) && (Y < 300 || Y > 500) )
+			else if (X - radius < (WIDTH / 2) && X > (WIDTH / 2) && (Y - radius < 300 || Y + radius > 500) )
 			{
 				dx = -dx;
 				X = (WIDTH / 2) + radius;
