@@ -16,8 +16,8 @@ public class Ball{
 	float dx;
 	float dy;
 	
-	final int WIDTH = 790;
-	final int HEIGHT = 760;
+	final int WIDTH = 800;
+	final int HEIGHT = 800;
 
 	boolean barrierUp = true;
 	
