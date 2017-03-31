@@ -7,8 +7,6 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
@@ -24,8 +22,7 @@ import java.lang.Math;
 
 public class BallPanel extends JPanel implements MouseListener, ActionListener{
 
-	
-	
+
 	ArrayList<Ball> balls = new ArrayList<Ball>();
 	
 	boolean barrierUp;
@@ -37,10 +34,8 @@ public class BallPanel extends JPanel implements MouseListener, ActionListener{
 		{
 			Ball toAdd = new Ball();
 			if (i % 2  == 0)
-				//balls.add(new Ball(true));
 				toAdd.setRed(true);
 			else
-				//balls.add(new Ball(false));
 				toAdd.setRed(false);
 			
 			if (i < 4)
@@ -56,11 +51,6 @@ public class BallPanel extends JPanel implements MouseListener, ActionListener{
 		addMouseListener(this);
 		
 		barrierUp = true;
-		
-		JButton newRed = new JButton("Add Red Ball");
-		JButton newBlue = new JButton("Add Blue Ball");
-		JButton reset = new JButton("Reset");
-		
 		
 		start();
 	}
@@ -185,7 +175,6 @@ public class BallPanel extends JPanel implements MouseListener, ActionListener{
 		frame.setSize(900,900);
 		frame.setLayout(new BorderLayout(10, 10));
 		
-		
 		BallPanel p = new BallPanel();
 		
 		JFrame optionFrame = new JFrame("Maxwell's Demons Buttons");
@@ -196,44 +185,23 @@ public class BallPanel extends JPanel implements MouseListener, ActionListener{
 		
 		p.addButtons(optionFrame);
 		
-		//JButton newRed = new JButton("Add Red Ball");
-		//JButton newBlue = new JButton("Add Blue Ball");
-		//JButton reset = new JButton("Reset");
-		
-		//newRed.addActionListener(new RedButtonListener());
-		
-		
-		//optionFrame.add(newRed);
-		//optionFrame.add(newBlue);
-		//optionFrame.add(reset);
 
-		
 		frame.add(p, BorderLayout.CENTER);
-	//	frame.add(new JButton(), BorderLayout.NORTH);
-	//	frame.add(new JButton(), BorderLayout.WEST);
-		
-		//frame.setLayout(new FlowLayout() );
-
 
 		frame.setVisible(true);
 		optionFrame.setVisible(true);
-		
-		
-		
+
 	}
 	
 	public void addButtons(JFrame buttonFrame)
 	{
 		JButton addBalls = new JButton("Add New Balls");
-		//JButton newBlue = new JButton("Add Blue Ball");
 		JButton reset = new JButton("Reset");
 		
 		buttonFrame.add(addBalls);
-		//buttonFrame.add(newBlue);
 		buttonFrame.add(reset);
 		
 		addBalls.addActionListener(new BallButtonListener());
-		//newBlue.addActionListener(new BlueButtonListener());
 		reset.addActionListener(new ResetButtonListener());
 		
 	}
@@ -266,16 +234,6 @@ public class BallPanel extends JPanel implements MouseListener, ActionListener{
 		}
 	}
 	
-	/*
-	public class BlueButtonListener implements ActionListener
-	{
-		public void actionPerformed(ActionEvent e)
-		{
-			balls.add(new Ball(false));
-		}
-	}
-	*/
-	
 	public class ResetButtonListener implements ActionListener
 	{
 		public void actionPerformed(ActionEvent e)
@@ -286,10 +244,8 @@ public class BallPanel extends JPanel implements MouseListener, ActionListener{
 			{
 				Ball toAdd = new Ball();
 				if (i % 2  == 0)
-					//balls.add(new Ball(true));
 					toAdd.setRed(true);
 				else
-					//balls.add(new Ball(false));
 					toAdd.setRed(false);
 				
 				if (i < 4)
