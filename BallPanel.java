@@ -1,9 +1,12 @@
 import java.awt.BasicStroke;
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
@@ -19,7 +22,7 @@ import java.lang.Math;
 
 
 
-public class BallPanel extends JPanel implements MouseListener, KeyListener{
+public class BallPanel extends JPanel implements MouseListener, ActionListener{
 
 	
 	
@@ -30,14 +33,33 @@ public class BallPanel extends JPanel implements MouseListener, KeyListener{
 	public BallPanel()
 	{
 		this.setBackground(Color.PINK);
-		for(int i = 0; i < 5; i++)
-			balls.add(new Ball());
+		for(int i = 0; i < 8; i++)
+		{
+			Ball toAdd = new Ball();
+			if (i % 2  == 0)
+				//balls.add(new Ball(true));
+				toAdd.setRed(true);
+			else
+				//balls.add(new Ball(false));
+				toAdd.setRed(false);
+			
+			if (i < 4)
+				toAdd.setLeft();
+			else
+				toAdd.setRight();
+			
+			balls.add(toAdd);
+		}
+			
 		System.out.println(balls.size());
 		
 		addMouseListener(this);
-		addKeyListener(this);
 		
 		barrierUp = true;
+		
+		JButton newRed = new JButton("Add Red Ball");
+		JButton newBlue = new JButton("Add Blue Ball");
+		JButton reset = new JButton("Reset");
 		
 		
 		start();
@@ -163,18 +185,123 @@ public class BallPanel extends JPanel implements MouseListener, KeyListener{
 		frame.setSize(900,900);
 		frame.setLayout(new BorderLayout(10, 10));
 		
-		BallPanel p = new BallPanel();
-	
 		
+		BallPanel p = new BallPanel();
+		
+		JFrame optionFrame = new JFrame("Maxwell's Demons Buttons");
+		optionFrame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
+		optionFrame.setDefaultLookAndFeelDecorated(true);
+		optionFrame.setSize(300, 100);
+		optionFrame.setLayout(new FlowLayout() );
+		
+		p.addButtons(optionFrame);
+		
+		//JButton newRed = new JButton("Add Red Ball");
+		//JButton newBlue = new JButton("Add Blue Ball");
+		//JButton reset = new JButton("Reset");
+		
+		//newRed.addActionListener(new RedButtonListener());
+		
+		
+		//optionFrame.add(newRed);
+		//optionFrame.add(newBlue);
+		//optionFrame.add(reset);
+
 		
 		frame.add(p, BorderLayout.CENTER);
 	//	frame.add(new JButton(), BorderLayout.NORTH);
 	//	frame.add(new JButton(), BorderLayout.WEST);
+		
+		//frame.setLayout(new FlowLayout() );
+
 
 		frame.setVisible(true);
+		optionFrame.setVisible(true);
 		
 		
 		
+	}
+	
+	public void addButtons(JFrame buttonFrame)
+	{
+		JButton addBalls = new JButton("Add New Balls");
+		//JButton newBlue = new JButton("Add Blue Ball");
+		JButton reset = new JButton("Reset");
+		
+		buttonFrame.add(addBalls);
+		//buttonFrame.add(newBlue);
+		buttonFrame.add(reset);
+		
+		addBalls.addActionListener(new BallButtonListener());
+		//newBlue.addActionListener(new BlueButtonListener());
+		reset.addActionListener(new ResetButtonListener());
+		
+	}
+	
+	public class BallButtonListener implements ActionListener
+	{
+		public void actionPerformed(ActionEvent e)
+		{
+			Ball toAdd1 = new Ball();
+			toAdd1.setLeft();
+			toAdd1.setRed(true);
+			
+			Ball toAdd2 = new Ball();
+			toAdd2.setLeft();
+			toAdd2.setRed(false);
+			
+			Ball toAdd3 = new Ball();
+			toAdd3.setRight();
+			toAdd3.setRed(true);
+			
+			Ball toAdd4 = new Ball();
+			toAdd4.setRight();
+			toAdd4.setRed(false);
+			
+			balls.add(toAdd1);
+			balls.add(toAdd2);
+			balls.add(toAdd3);
+			balls.add(toAdd4);
+
+		}
+	}
+	
+	/*
+	public class BlueButtonListener implements ActionListener
+	{
+		public void actionPerformed(ActionEvent e)
+		{
+			balls.add(new Ball(false));
+		}
+	}
+	*/
+	
+	public class ResetButtonListener implements ActionListener
+	{
+		public void actionPerformed(ActionEvent e)
+		{
+			balls.clear();
+			
+			for(int i = 0; i < 8; i++)
+			{
+				Ball toAdd = new Ball();
+				if (i % 2  == 0)
+					//balls.add(new Ball(true));
+					toAdd.setRed(true);
+				else
+					//balls.add(new Ball(false));
+					toAdd.setRed(false);
+				
+				if (i < 4)
+					toAdd.setLeft();
+				else
+					toAdd.setRight();
+				
+				balls.add(toAdd);
+			}
+			
+
+		}
 	}
 
 
@@ -219,28 +346,11 @@ public class BallPanel extends JPanel implements MouseListener, KeyListener{
 		
 	}
 
-	public void keyTyped(KeyEvent e) {
+	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		//System.out.println(e.getKeyChar());
-		char character = '?';
-		character = e.getKeyChar();
-		System.out.println(character);
-		
 		
 	}
 
-	public void keyPressed(KeyEvent e) {
-		// TODO Auto-generated method stub
-		System.out.println(e.getKeyChar());
-	}
-
-	public void keyReleased(KeyEvent e) {
-		// TODO Auto-generated method stub
-		System.out.println(e.getKeyChar());
-		
-	}
-	
-	
 	
 	
 }
