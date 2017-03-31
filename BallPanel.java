@@ -140,6 +140,8 @@ public class BallPanel extends JPanel implements MouseListener, ActionListener{
 			}
 		}
 		
+		if(count == 0)
+			return "0";
 		leftSideSpeed /= count;
 		str = leftSideSpeed.toString();
 		str = str.substring(0,4);
@@ -159,7 +161,8 @@ public class BallPanel extends JPanel implements MouseListener, ActionListener{
 				count++;
 			}
 		}
-		
+		if(count == 0)
+			return "0";
 		rightSideSpeed /= count;
 		str = rightSideSpeed.toString();
 		str = str.substring(0,4);
@@ -169,26 +172,25 @@ public class BallPanel extends JPanel implements MouseListener, ActionListener{
 
 	public static void main(String[] args) {
 		
-		JFrame frame = new JFrame("Maxwell's Demons");
+	/*	JFrame frame = new JFrame("Maxwell's Demons");
 		frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
 		frame.setDefaultLookAndFeelDecorated(true);
 		frame.setSize(900,900);
 		frame.setLayout(new BorderLayout(10, 10));
-		
+		*/
 		BallPanel p = new BallPanel();
 		
 		JFrame optionFrame = new JFrame("Maxwell's Demons Buttons");
-		optionFrame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
+		optionFrame.setDefaultCloseOperation(optionFrame.EXIT_ON_CLOSE);
 		optionFrame.setDefaultLookAndFeelDecorated(true);
-		optionFrame.setSize(300, 100);
-		optionFrame.setLayout(new FlowLayout() );
+		optionFrame.setSize(820, 900);
+		optionFrame.setLayout(new BorderLayout());
 		
 		p.addButtons(optionFrame);
 		
+		optionFrame.add(p, BorderLayout.CENTER);
 
-		frame.add(p, BorderLayout.CENTER);
-
-		frame.setVisible(true);
+	//	frame.setVisible(true);
 		optionFrame.setVisible(true);
 
 	}
@@ -198,8 +200,8 @@ public class BallPanel extends JPanel implements MouseListener, ActionListener{
 		JButton addBalls = new JButton("Add New Balls");
 		JButton reset = new JButton("Reset");
 		
-		buttonFrame.add(addBalls);
-		buttonFrame.add(reset);
+		buttonFrame.add(addBalls, BorderLayout.NORTH);
+		buttonFrame.add(reset, BorderLayout.SOUTH);
 		
 		addBalls.addActionListener(new BallButtonListener());
 		reset.addActionListener(new ResetButtonListener());
