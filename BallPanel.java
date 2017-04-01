@@ -46,7 +46,7 @@ public class BallPanel extends JPanel implements MouseListener, ActionListener{
 			balls.add(toAdd);
 		}
 			
-		System.out.println(balls.size());
+	//	System.out.println(balls.size());
 		
 		addMouseListener(this);
 		
@@ -200,8 +200,12 @@ public class BallPanel extends JPanel implements MouseListener, ActionListener{
 		JButton addBalls = new JButton("Add New Balls");
 		JButton reset = new JButton("Reset");
 		
-		buttonFrame.add(addBalls, BorderLayout.NORTH);
-		buttonFrame.add(reset, BorderLayout.SOUTH);
+		JPanel pan = new JPanel();
+		pan.setLayout(new FlowLayout());
+		pan.add(addBalls);
+		pan.add(reset);
+		pan.setBackground(Color.PINK);
+		buttonFrame.add(pan, BorderLayout.SOUTH);
 		
 		addBalls.addActionListener(new BallButtonListener());
 		reset.addActionListener(new ResetButtonListener());
