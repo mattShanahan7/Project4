@@ -37,7 +37,6 @@ public class Ball{
 		dx = 4;
 		dy = 4;	
 		
-		//this.start();
 
 	}
 	
@@ -130,8 +129,7 @@ public class Ball{
 			dy = -dy;
 			Y = HEIGHT - radius;
 		}
-		
-		//System.out.println(X + ", " + Y);
+
 	}
 	
 	
@@ -139,7 +137,6 @@ public class Ball{
 	  {
 		  if (isRed)
 		  {
-			  //System.out.println("Red flag is on");
 			  g.setColor(Color.RED);
 			  g.fillOval((int)(X-radius), (int)(Y-radius), (int)diameter, (int)diameter);
 		  }

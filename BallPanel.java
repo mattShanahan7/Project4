@@ -45,8 +45,6 @@ public class BallPanel extends JPanel implements MouseListener, ActionListener{
 			
 			balls.add(toAdd);
 		}
-			
-	//	System.out.println(balls.size());
 		
 		addMouseListener(this);
 		
@@ -171,16 +169,9 @@ public class BallPanel extends JPanel implements MouseListener, ActionListener{
 	
 
 	public static void main(String[] args) {
-		
-	/*	JFrame frame = new JFrame("Maxwell's Demons");
-		frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
-		frame.setDefaultLookAndFeelDecorated(true);
-		frame.setSize(900,900);
-		frame.setLayout(new BorderLayout(10, 10));
-		*/
 		BallPanel p = new BallPanel();
 		
-		JFrame optionFrame = new JFrame("Maxwell's Demons Buttons");
+		JFrame optionFrame = new JFrame("Maxwell's Demons");
 		optionFrame.setDefaultCloseOperation(optionFrame.EXIT_ON_CLOSE);
 		optionFrame.setDefaultLookAndFeelDecorated(true);
 		optionFrame.setSize(820, 900);
@@ -190,7 +181,6 @@ public class BallPanel extends JPanel implements MouseListener, ActionListener{
 		
 		optionFrame.add(p, BorderLayout.CENTER);
 
-	//	frame.setVisible(true);
 		optionFrame.setVisible(true);
 
 	}
